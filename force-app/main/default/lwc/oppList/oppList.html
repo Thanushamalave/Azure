@@ -1,0 +1,13 @@
+
+<template>
+    
+    <template if:true={opportunities}>
+        <lightning-card title="Opportunity info" icon-name="custom:custom14">
+    <h2><b>Opportunities for Selected Contact</b></h2>
+    <ul>
+        <template for:each={opportunities} for:item="opportunity">
+            <li key={opportunity.Id}><p>{opportunity.Name}</p>
+                                        <p>{opportunity.Amount}</p></li>
+        </template>
+    </ul></lightning-card>
+</template></template>

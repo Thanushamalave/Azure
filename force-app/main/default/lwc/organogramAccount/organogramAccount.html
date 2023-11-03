@@ -1,0 +1,388 @@
+<template>
+
+    <h2 class="slds-text-heading_large" style="font-size: 20px;color:#427ccd;">
+    <b>  Contact Hierarchy  </b>
+    </h2>
+
+    
+
+
+  <!-- Header End -->
+  
+  <!--Model body Start -->
+  
+    <template if:true={conList}>
+  <div class="slds-modal__content" >
+    
+    <div class="wrapper" >  
+      <div class="container slds-scrollable_x" >  
+          <!-- <div style=" position: absolute;margin-left: 25px;">
+    <img src={relaURL} style="border:unset; border-radius:unset;" />
+  </div> -->
+  
+        <div class="mainDiv">
+          <div class="mainDiv2">
+            <template for:each={conList} for:item="l2" for:index="index">
+                              <ol key={l2}>
+                                  <!-- <template for:each={l1.value} for:item="l2" for:index="index">
+                                      <li key={l2} class="card-li"> -->
+                                        <div class="staff_card">
+                                          <div class="abc">
+                                          </div>
+                                          <div class="staff_info" >
+                                                  <div class="staff_image " style="position:relative">
+                                                      <img src={l2.Image__c}
+                                                              class="card-img-top" />
+                                                              </div>        
+                                                  <div class="staff_name_container">
+                                                          <!-- <div class="staff_title">
+                                                            {l2.Name}<br >
+                                                            {l2.Designation__c}
+                                                          </div> -->
+                                                          <div class="staff_name slds-popover" onmouseover={showOpportunities}
+                                                                        onmouseout={hideOpportunities}
+                                                                        data-contact-id={l2.Id}>
+                                                         <div class="staff_name " >
+                                                                    
+                                                                    <a onclick={navigateToContactRecord}
+                                                                        class="contact-name"
+                                                                        data-contact-id={l2.Id}>
+                                                                        <b>Name -{l2.Name}</b>
+                                                                    </a>
+    <div if:true={showPopover} class="slds-popover__body slds-popover__body_small" id="dialog-body-id-115" tabindex="0" role="region">
+        
+<article class="slds-card">
+<div class="slds-card__header slds-grid">
+<header class="slds-media slds-media_center slds-has-flexi-truncate">
+<div class="slds-media__figure">
+<span class="slds-icon_container slds-icon-standard-opportunity">
+<lightning-icon icon-name="standard:opportunity" size="small"></lightning-icon>
+<span class="slds-assistive-text">Opportunities</span>
+                                </span>
+</div>
+<div class="slds-media__body">
+<h2 class="slds-card__header-title">
+<a href="#" class="slds-card__header-link slds-truncate" title="Opportunities">
+<span>Opportunities</span>
+</a>
+</h2>
+</div>
+
+</header>
+</div>
+<div class="slds-card__body slds-card__body_inner"><template for:each={opportunities} for:item="item">
+
+                        <dd class="slds-m-top_x-small" key={item.Id}>
+                            <p class="slds-truncate" title={item.Name}>
+                                <a href="#">{item.Name}</a>
+                            </p>
+                            <dl class="slds-list_horizontal slds-wrap slds-text-body_small">
+
+                                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Value">Amount
+                                </dt>
+                                <dd class="slds-item_detail slds-text-color_weak slds-truncate" title="$500,000">
+                                    {item.Amount}</dd>
+                                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Close Date">
+                                    Close Date</dt>
+                                <dd class="slds-item_detail slds-text-color_weak slds-truncate"
+                                    title="Dec 15, 2015">{item.CloseDate}</dd>
+                            </dl>
+                        </dd>
+                    </template></div>
+<!-- <footer class="slds-card__footer">
+<a class="slds-card__footer-action" href="#">View All
+<span class="slds-assistive-text">Accounts</span>
+</a>
+</footer> -->
+</article>
+</div>
+                                                                                                                                
+                                                          </div>
+                                                              <b>Email-Id</b>-{l2.Email}   <br />
+                                                              <b>Phone</b> - {l2.Phone}     <br /> 
+                                                            
+                                                          </div>
+                                                         
+                                                                    <div class="slds-m-around_medium">
+                                                                        <button data-contact-id={l2.Id} onclick={handleChildContactSelected}>Show Opp & Cases</button>
+                                                                         <button data-contact-id={l2.Id} onclick={handleClick}>ChildContacts</button>
+                                                                    </div>
+
+                                                      </div>
+
+                                                  
+                               
+                                          </div>
+
+                                
+                                        </div>  
+                                      <!-- </li>
+                                  </template> -->
+                              </ol>    
+            </template>
+          </div>
+        </div>
+
+        <div class="mainDiv3">
+          <div class="mainDiv4">
+            <template for:each={grandChildContacts} for:item="l2" for:index="index">
+                              <ol key={l2}>
+                                  <!-- <template for:each={l1.value} for:item="l2" for:index="index">
+                                      <li key={l2} class="card-li"> -->
+                                        <div class="staff_card">
+                                          <!-- <div class="abc">
+                                          </div> -->
+                                          <div class="staff_info1" >
+                                                  <div class="staff_image " style="position:relative">
+                                                      <img src={l2.Image__c}
+                                                              class="card-img-top" />
+                                                              </div>        
+                                                  <div class="staff_name_container">
+                                                          <!-- <div class="staff_title">
+                                                            {l2.Name}<br >
+                                                            {l2.Designation__c}
+                                                          </div> -->
+                                                          <div class="staff_name">
+                                                         <div class="staff_name slds-popover" onmouseover={showOpportunities1}
+                                                                        onmouseout={hideOpportunities1}
+                                                                        data-contact-id={l2.Id}>
+                                                                        <a onclick={navigateToContactRecord}
+                                                                        class="contact-name"
+                                                                        data-contact-id={l2.Id}>
+                                                                        <b>Name -{l2.Name}</b>
+                                                                    </a>
+    <div if:true={showPopover1} class="slds-popover__body slds-popover__body_small" id="dialog-body-id-114" tabindex="0" role="region">
+       
+                        <article class="slds-card slds-truncate">
+<div class="slds-card__header slds-grid">
+<header class="slds-media slds-media_center slds-has-flexi-truncate">
+<div class="slds-media__figure">
+<span class="slds-icon_container slds-icon-standard-opportunity">
+<lightning-icon icon-name="standard:opportunity" size="small"></lightning-icon>
+<span class="slds-assistive-text">Opportunities</span>
+                                </span>
+</div>
+<div class="slds-media__body">
+<h2 class="slds-card__header-title">
+<a href="#" class="slds-card__header-link slds-truncate" title="Opportunities">
+<span>Opportunities</span>
+</a>
+</h2>
+</div>
+
+</header>
+</div>
+<div class="slds-card__body slds-card__body_inner"><template for:each={opportunitiesChild} for:item="item">
+
+                        <dd class="slds-m-top_x-small" key={item.Id}>
+                            <p class="slds-truncate" title={item.Name}>
+                                <a href="#">{item.Name}</a>
+                            </p>
+                            <dl class="slds-list_horizontal slds-wrap slds-text-body_small">
+
+                                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Value">Amount
+                                </dt>
+                                <dd class="slds-item_detail slds-text-color_weak slds-truncate" title="$500,000">
+                                    {item.Amount}</dd>
+                                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Close Date">
+                                    Close Date</dt>
+                                <dd class="slds-item_detail slds-text-color_weak slds-truncate"
+                                    title="Dec 15, 2015">{item.CloseDate}</dd>
+                            </dl>
+                        </dd>
+                    </template></div>
+
+</article>
+                        
+</div>																	
+                                                          </div>
+                                                              Email-Id -{l2.Email}   <br />
+                                                              Phone - {l2.Phone}     <br /> 
+                                                            
+                                                          </div>
+                                               
+                                                                    <div class="slds-m-around_medium">
+                                                                        <button data-contact-id={l2.Id} onclick={handleChildContactSelected}>Show Opp & Cases</button>
+                                                                    </div>
+
+                                                                
+
+                                                         <!-- <button class="slds-button slds-button_neutral slds-button_stretch" onclick={handleClick}>ChildContacts</button> -->
+            
+               
+                                                  </div>
+
+                                                  
+                               
+                                          </div>
+
+                                
+                                        </div>  
+                                      
+                              </ol>    
+            </template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    </template>
+
+      <template if:false={conList}>
+  <div class="noData" >
+    No Data Found
+  </div>
+      </template>
+
+
+
+
+
+
+
+<!-- on hover opp -->
+<div if:true={showOppModal} class="opportunity-popover-container">
+        <section aria-labelledby="panel-heading-id" class="slds-popover slds-popover_panel slds-nubbin_bottom-right"
+            role="dialog">
+            <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-small slds-float_right slds-popover__close" title="Close dialog">
+
+<lightning-icon icon-name="utility:close" size="small" onclick={closeOppModal}></lightning-icon>
+<span class="slds-assistive-text">Close dialog</span>
+</button>
+
+            <div class="slds-popover__body">
+                <dl class="slds-popover__body-list">
+                    <dt class="slds-m-bottom_small">
+                        <div class="slds-media slds-media_center">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container slds-icon-standard-opportunity">
+<lightning-icon icon-name="standard:opportunity" size="small"></lightning-icon>
+<span class="slds-assistive-text">Opportunities</span>
+                                </span>
+                            </div>
+                            <div class="slds-media__body slds-p-left_x-small">
+                                <p class="slds-text-heading_small slds-hyphenate">Opportunities ({opportunityCount})
+                                </p>
+                            </div>
+                        </div>
+                    </dt>
+                    <template for:each={modalOpportunities} for:item="item">
+
+                        <dd class="slds-m-top_x-small" key={item.Id}>
+                            <p class="slds-truncate" title={item.Name}>
+                                <a href="#">{item.Name}</a>
+                            </p>
+                            <dl class="slds-list_horizontal slds-wrap slds-text-body_small">
+
+                                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Value">Amount
+                                </dt>
+                                <dd class="slds-item_detail slds-text-color_weak slds-truncate" title="$500,000">
+                                    {item.Amount}</dd>
+                                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Close Date">
+                                    Close Date</dt>
+                                <dd class="slds-item_detail slds-text-color_weak slds-truncate"
+                                    title="Dec 15, 2015">{item.CloseDate}</dd>
+                            </dl>
+                        </dd>
+                    </template>
+                </dl>
+
+            </div>
+        </section>
+    </div>  
+    <!-- on click cases -->
+    <template if:true={showCaseModal}>
+        <div class="opportunity-popover-container ">
+            <section aria-labelledby="panel-heading-id" class="slds-popover slds-popover_panel slds-nubbin_bottom-right"
+                role="dialog">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-small slds-float_right slds-popover__close" title="Close dialog">
+
+<lightning-icon icon-name="utility:close" size="small" onclick={closeCaseModal}></lightning-icon>
+<span class="slds-assistive-text">Close dialog</span>
+</button>
+                <div>
+                    <dl class="slds-popover__body-list">
+                        <dt class="slds-m-bottom_small">
+                            <div class="slds-media slds-media_center">
+                                <div class="slds-media__figure">
+                                    <span class="slds-icon_container slds-icon-standard-case">
+<lightning-icon icon-name="standard:case" size="small"></lightning-icon>
+<span class="slds-assistive-text"> Cases</span>
+                                    </span>
+                                </div>
+                                <div class="slds-media__body slds-p-left_x-small">
+                                    <p class="slds-text-heading_small slds-hyphenate ">Cases ({caseCount})</p>
+                                </div>
+                            </div>
+                        </dt>
+                        <template for:each={modalCases} for:item="item">
+
+                            <dd class="slds-m-top_x-small" key={item.Id}>
+                                <p class="slds-truncate" title={item.Subject}>
+                                    <a data-case-id={item.Id} onclick={navigateToCaseRecord}>{item.Subject}</a>
+                                </p>
+                                <dl class="slds-list_horizontal slds-wrap slds-text-body_small">
+                                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Value">
+                                        Subject</dt>
+                                    <dd class="slds-item_detail slds-text-color_weak slds-truncate"
+                                        title="$500,000">{item.Subject}</dd>
+                                    <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                        title="Close Date">CaseNumber</dt>
+                                    <dd class="slds-item_detail slds-text-color_weak slds-truncate"
+                                        title="Dec 15, 2015">{item.CaseNumber}</dd>
+                                    <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                        title="Close Date">Case Status</dt>
+                                    <dd class="slds-item_detail slds-text-color_weak slds-truncate"
+                                        title="Dec 15, 2015">{item.Status}</dd>
+                                </dl>
+                            </dd>
+                        </template>
+                    </dl>
+
+                </div>
+                <!-- on click opp -->
+                <div class="slds-popover__body ">
+                    <dl class="slds-popover__body-list">
+                        <dt class="slds-m-bottom_small">
+                            <div class="slds-media slds-media_center">
+                                <div class="slds-media__figure">
+                                    <span class="slds-icon_container slds-icon-standard-opportunity slds-icon slds-icon_small" aria-hidden="true">
+<lightning-icon icon-name="standard:opportunity" size="small"></lightning-icon>
+<span class="slds-assistive-text">Opportunities</span>
+                                    </span>
+                                </div>
+                                <div class="slds-media__body slds-p-left_x-small">
+                                    <p class="slds-text-heading_small slds-hyphenate"> Opportunities
+                                        ({opportunityCount})</p>
+                                </div>
+                            </div>
+                        </dt>
+                        <template for:each={modalOpportunities} for:item="item">
+
+                            <dd class="slds-m-top_x-small" key={item.Id}>
+                                <p class="slds-truncate" title={item.Name}>
+                                    <a data-opportunity-id={item.Id}
+                                        onclick={navigateToOpportunityRecord}>{item.Name}</a>
+                                </p>
+                                <dl class="slds-list_horizontal slds-wrap slds-text-body_small">
+
+                                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Value">
+                                        Amount</dt>
+                                    <dd class="slds-item_detail slds-text-color_weak slds-truncate"
+                                        title="$500,000">{item.Amount}</dd>
+                                    <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                        title="Close Date">Close Date</dt>
+                                    <dd class="slds-item_detail slds-text-color_weak slds-truncate"
+                                        title="Dec 15, 2015">{item.CloseDate}</dd>
+                                </dl>
+                            </dd>
+                        </template>
+                    </dl>
+
+                </div>
+
+            </section>
+        </div>
+    </template>
+</template>

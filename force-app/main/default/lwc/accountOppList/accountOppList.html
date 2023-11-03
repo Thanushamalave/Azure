@@ -1,0 +1,17 @@
+<template>
+    <template if:true={opportunities}>
+    
+        <div>
+       <ul>     
+    <template for:each={opportunities} for:item="opportunity">
+        
+        <li key={opportunity.Id} class="popupClass" data-contact-id={opportunity.Id}>
+          
+            <p><b>Opportunity Name:</b> {opportunity.Name}</p>
+            <p><b>Amount :</b> {opportunity.Amount}</p>
+            <p><b>Close Date : </b>{opportunity.CloseDate}</p>
+        </li>
+    </template>
+    </ul>
+    </div></template>
+</template>

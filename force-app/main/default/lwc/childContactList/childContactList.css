@@ -1,0 +1,37 @@
+.contact-list-horizontal {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping to the next line */
+    overflow-x: auto;
+    height: 240px;  /* Add horizontal scrollbar if necessary */
+}
+.contact-item:hover {
+    background-color: #ebe9e9;
+ /* New background color on hover */
+}
+.contact-item:hover + .contact-list-horizontal{
+    height: 450px;
+}
+.contact-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    height: 100px;
+}
+.slds-popover {
+    display: inline-block;
+    position: relative;
+}
+
+
+.slds-popover__body {
+    display: none;
+    position: absolute;
+    background-color: #fcf8f8;
+    padding: 10px;
+    border: none;
+    flex-wrap: wrap;
+}
+
+.slds-popover:hover .slds-popover__body {
+    display: block;
+}

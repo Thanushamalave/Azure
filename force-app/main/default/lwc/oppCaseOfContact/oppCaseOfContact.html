@@ -1,0 +1,29 @@
+<template>
+    <template if:true={cases}>
+        
+        <div class="contact-list-horizontal slds-align_absolute-center">
+            <ul>
+                <p if:true={cases.length}><b>Number of cases : {cases.length}</b></p>
+    <template for:each={cases} for:item="case1">
+        
+        <li key={case1.Id} class="contact-item" data-contact-id={case1.Id} onclick={navigateToCaseDetail}>
+          <b>Cases:</b>
+            <p if:true={case1.CaseNumber}><b>CaseNumber:</b> {case1.CaseNumber}</p>
+            <p  if:true={case1.ContactId}><b>Case Contact:</b> {case1.ContactId}</p>
+            <p if:true={case1.Status}><b>Status :</b> {case1.Status}</p>
+            <p if:true={case1.Origin}><b>Case Origin : </b>{case1.Origin}</p>
+        </li>
+    </template></ul>
+    <ul>
+        <p if:true={opportunities1.length}><b>Number of Opportunities : {opportunities1.length}</b></p>
+    <template for:each={opportunities1} for:item="opportunity">
+        
+        <li key={opportunity.Id} class="contact-item" data-contact-id={opportunity.Id} onclick={navigateToCaseDetail}>
+            <b>Opportunities:</b>
+            <p><b>Opportunity Name:</b> {opportunity.Name}</p>
+            <p><b>Amount :</b> {opportunity.Amount}</p>
+            <p><b>Close Date : </b>{opportunity.CloseDate}</p>
+        </li>
+    </template></ul></div>
+</template>
+</template>

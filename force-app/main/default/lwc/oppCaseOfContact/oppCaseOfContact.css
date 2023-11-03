@@ -1,0 +1,21 @@
+.contact-list-horizontal {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping to the next line */
+    overflow-x: auto; 
+    max-height: 20vw;
+    justify-content: center; /* Add horizontal scrollbar if necessary */
+}
+.contact-item:hover {
+    background-color: #ccc; /* New background color on hover */
+}
+.contact-list-horizontal::-webkit-scrollbar{
+    width: 1;
+}
+.contact-item {
+    border: 1px solid #ccc;
+    /* padding: 5px; */
+    margin: 0.2vw;
+    min-width: 30vh;
+    overflow-wrap: break-word;
+    padding: 0.3vh;
+}

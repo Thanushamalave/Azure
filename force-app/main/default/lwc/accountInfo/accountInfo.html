@@ -1,0 +1,58 @@
+<template>
+    <lightning-card title="Account info" icon-name="custom:custom14">
+    <p>Record Id: {recordId}</p>
+    
+    
+    <!-- <div class="slds-box slds-box_small"> -->
+        
+        <p><b>Contacts Of Account are : </b></p>
+        <div class="contact-list-horizontal ">
+        
+        <template for:each={childContacts} for:item="contact">
+            <div key={contact.Id} class="contact-item slds-popover slds-align_absolute-center" data-contact-id={contact.Id} 
+             onmousemove={showOpportunities}
+            onmouseout={hideOpportunities}>
+                <div class="contact-card " >
+                        <div class="image-div">
+                                <img src={contact.Image_URL__c} class="emoji-img" />
+                        </div>
+                        <div class="contact-info slds-wrap"  key={contact.Id} data-contact-id={contact.Id} >
+                                <p ><b>Contact Name: {contact.Name}</b></p> 
+                                <p if:true={contact.Email}>Contact Email: {contact.Email}</p>
+                                <p if:true={contact.Phone}>Phone: {contact.Phone}</p>
+                                <p if:true={contact.Birthdate}>Birthdate: {contact.Birthdate}</p>
+                                <p if:true={contact.LeadSource}>LeadSource: {contact.LeadSource}</p>
+                                <p if:true={contact.Fax}>Contact Fax: {contact.Fax}</p>
+                        </div>
+
+                        <button class="slds-button slds-button_neutral slds-button_stretch" onclick={handleClick}>ChildContacts</button>
+                </div>
+           
+            <div class="slds-popover__body slds-popover__body_small" id="dialog-body-id-115" tabindex="0" role="region">
+                <div class="slds-media">
+                    <div class="slds-media__body">
+
+                        <div class="slds-text-longform">
+
+                            <p if:true={opportunities}>
+                                <c-account-opp-list opportunities={opportunities}></c-account-opp-list>
+                            </p>
+                <p>.</p>
+       
+</div>
+</div>
+</div>
+</div>
+
+
+                
+                
+            </div>
+        </template>
+    </div>  
+    <template if:true={grandChildContacts}>
+        <c-child-contact-list grandchildcontacts={grandChildContacts}></c-child-contact-list>
+    </template>
+    <!-- </div> -->
+</lightning-card>
+</template>

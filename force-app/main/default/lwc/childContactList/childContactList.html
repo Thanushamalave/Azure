@@ -1,0 +1,54 @@
+<template>
+    <template if:true={grandchildcontacts}>
+        
+        <div class="contact-list-horizontal ">
+            
+        <template for:each={grandchildcontacts} for:item="contact">
+            
+            <div key={contact.Id} class="contact-item slds-popover" data-contact-id={contact.Id} onmousemove={showOpportunities} onmouseout={hideOpportunities} 
+            onclick={showoppcasesofcontacts}>
+           
+                <div class="contact-card " onmousemove={showOpportunities} onmouseout={hideOpportunities} 
+            onclick={showoppcasesofcontacts}>
+                        <div class="image-div" >
+                                <img src={contact.Image_URL__c} />
+                        </div>
+                        <div class="contact-info slds-grid slds-wrap wrap-text">
+                                <p><b>Contact Name : {contact.Name}</b></p>
+                                <p>Contact Email : {contact.Email}</p>
+                                <p>Contact Phone : {contact.Phone}</p>
+                        </div>
+                </div>
+                <div class="slds-popover__body slds-popover__body_small" id="dialog-body-id-115" tabindex="0" role="region">
+<div class="slds-media">
+<div class="slds-media__body">
+
+<div class="slds-text-longform">
+<div class=" slds-popover__body contact-list-horizontal" if:true={opportunities}> -->
+                    <p if:true={opportunities}>
+                        <c-account-opp-list opportunities={opportunities}></c-account-opp-list>
+                    </p>
+                </div> 
+                <p>.</p>
+       
+</div>
+</div>
+</div>
+</div>
+                
+                <!-- <div>
+                    <div class="contact-list-horizontal slds-popover__body">
+                        <template if:true={opportunities}>
+                            <c-account-opp-list opportunities={opportunities}></c-account-opp-list>
+                        </template>
+                    </div>
+                </div> -->
+            </div>
+        </template>
+</div>
+
+<template if:true={cases}>
+    <c-opp-case-of-contact cases={cases} opportunities1={opportunities1}></c-opp-case-of-contact>
+</template>
+</template>
+</template>

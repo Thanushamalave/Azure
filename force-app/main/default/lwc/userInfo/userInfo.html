@@ -1,0 +1,27 @@
+<!-- userHierarchy.html -->
+
+<template>
+    <div class="slds-m-around_medium">
+        <h1>Current User</h1>
+        <template if:true={currentUser}>
+            <p>Name: {currentUser.Name}</p>
+            <p>Email: {currentUser.Email}</p>
+            <p>Phone: {currentUser.Phone}</p>
+        </template>
+        <h2>Users Above Current User</h2>
+        <ul>
+        <template for:each={usersAboveCurrentUser} for:item="user">
+                <li key={user.Id}><p>{user.Name}</p>
+                    <p >Email: {user.Email}</p></li>
+                
+        </template>
+        </ul>
+        <h2>Users Below Current User</h2>
+        <template for:each={usersBelowCurrentUser} for:item="user">
+            <p key={user.Id}>{user.Name}</p>
+            <p key={user.Id}>Email: {user.Email}</p>
+        </template>
+    </div>
+      
+  
+</template>
